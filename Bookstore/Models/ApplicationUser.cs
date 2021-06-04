@@ -16,6 +16,6 @@ namespace Bookstore.Models
         public DateTime DateOfBirth { get; set; }
         public string FavoriteBook { get; set; }
         public Genre FavoriteGenre { get; set; }
-        public DateTime LoggedInSince { get; set; } = DateTime.Now;
+        public virtual DateTime RegisteredSince { get; set; } = DateTime.Now;
     }
 }

@@ -85,7 +85,9 @@ namespace Bookstore.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             public Genre FavoriteGenre { get; set; }
 
-            
+            [Display(Name = "Ingelogd sinds:")]
+            [DataType(DataType.Date)]
+            public DateTime RegisteredSince { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -100,7 +102,7 @@ namespace Bookstore.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FavoriteBook = Input.FavoriteBook, FavoriteGenre = Input.FavoriteGenre};
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FavoriteBook = Input.FavoriteBook, FavoriteGenre = Input.FavoriteGenre, RegisteredSince = Input.RegisteredSince};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

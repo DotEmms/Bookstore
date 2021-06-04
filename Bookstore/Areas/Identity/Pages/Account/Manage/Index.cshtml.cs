@@ -53,7 +53,7 @@ namespace Bookstore.Areas.Identity.Pages.Account.Manage
 
             public string FavoriteBook { get; set; }
             public Genre FavoriteGenre { get; set; }
-            public DateTime LoggedInSince { get; set; }
+            public DateTime RegisteredSince { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -71,7 +71,7 @@ namespace Bookstore.Areas.Identity.Pages.Account.Manage
                 DateOfBirth = user.DateOfBirth,
                 FavoriteBook = user.FavoriteBook,
                 FavoriteGenre = user.FavoriteGenre,
-                LoggedInSince = user.LoggedInSince,
+                RegisteredSince = user.RegisteredSince,
             };
         }
 
