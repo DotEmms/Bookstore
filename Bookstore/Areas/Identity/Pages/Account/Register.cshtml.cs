@@ -102,7 +102,7 @@ namespace Bookstore.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FavoriteBook = Input.FavoriteBook, FavoriteGenre = Input.FavoriteGenre, RegisteredSince = Input.RegisteredSince};
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, DateOfBirth = Input.DateOfBirth, FavoriteBook = Input.FavoriteBook, FavoriteGenre = Input.FavoriteGenre, RegisteredSince = Input.RegisteredSince};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

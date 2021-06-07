@@ -32,9 +32,7 @@ namespace Bookstore.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Phone]
-            [Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+            
 
             [Required]
             [Display(Name = "Voornaam")]
@@ -51,8 +49,15 @@ namespace Bookstore.Areas.Identity.Pages.Account.Manage
             [DataType(DataType.Date)]
             public DateTime DateOfBirth { get; set; }
 
+            [Display(Name = "Favoriet boek")]
+            [DataType(DataType.Text)]
             public string FavoriteBook { get; set; }
+
+            [Display(Name = "Favoriet genre")]
+            [DataType(DataType.Text)]
             public Genre FavoriteGenre { get; set; }
+            [Display(Name = "Regeristreerd op")]
+            [DataType(DataType.Date)]
             public DateTime RegisteredSince { get; set; }
         }
 
@@ -65,7 +70,6 @@ namespace Bookstore.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 DateOfBirth = user.DateOfBirth,
@@ -101,16 +105,16 @@ namespace Bookstore.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
-            }
+            //var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            //if (Input.PhoneNumber != phoneNumber)
+            //{
+            //    var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            //    if (!setPhoneResult.Succeeded)
+            //    {
+            //        StatusMessage = "Unexpected error when trying to set phone number.";
+            //        return RedirectToPage();
+            //    }
+            //}
 
             user.FirstName = Input.FirstName;
             user.LastName = Input.LastName;

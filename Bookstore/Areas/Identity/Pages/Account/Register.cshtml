@@ -28,6 +28,21 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Input.FirstName"></label>
+                <input asp-for="Input.FirstName" class="form-control" />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName"></label>
+                <input asp-for="Input.LastName" class="form-control" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.DateOfBirth"></label>
+                <input asp-for="Input.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Input.FavoriteBook"></label>
                 <input asp-for="Input.FavoriteBook" class="form-control" />
                 <span asp-validation-for="Input.FavoriteBook" class="text-danger"></span>
@@ -40,7 +55,7 @@
                 <span asp-validation-for="Input.FavoriteGenre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="Input.RegisteredSince" class="form-control" value="@DateTime.Now"/>
+                <input asp-for="Input.RegisteredSince" class="form-control" value="@DateTime.Today" disabled/>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
